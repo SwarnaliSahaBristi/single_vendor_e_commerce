@@ -10,7 +10,7 @@ const createProduct = async (req: Request, res: Response) => {
   });
 };
 const getProducts = async (req: Request, res: Response) => {
-  const result = await ProductService.getProducts();
+  const result = await ProductService.getAllProducts();
   res.status(201).json({
     success: true,
     message: "Product fetched successfully",

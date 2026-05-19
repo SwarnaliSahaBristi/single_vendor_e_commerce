@@ -9,6 +9,7 @@ const env = {
   jwt_secret: process.env.JWT_SECRET as string,
   node_env: process.env.NODE_ENV as string,
   database_url: process.env.DATABASE_URL as string,
+  mongo_uri: process.env.MONGO_URI as string,
 };
 
 export default env;

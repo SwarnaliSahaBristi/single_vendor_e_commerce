@@ -1,23 +1,21 @@
 import { Request, Response } from "express";
 import { OrderService } from "./order.service";
 
-const createOrder = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+const createOrder = async (req: Request, res: Response) => {
+  try {
+    const result = await OrderService.createOrder(req.body);
 
-  const userId = req.body.userId;
-
-  const result = await OrderService.createOrder(
-    userId,
-    req.body
-  );
-
-  res.status(201).json({
-    success: true,
-    message: "Order created successfully",
-    data: result,
-  });
+    res.status(201).json({
+      success: true,
+      message: "Order created successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
 
 const getOrders = async (
@@ -25,7 +23,7 @@ const getOrders = async (
   res: Response
 ): Promise<void> => {
 
-  const result = await OrderService.getOrders();
+  const result = await OrderService.getAllOrders();
 
   res.status(200).json({
     success: true,

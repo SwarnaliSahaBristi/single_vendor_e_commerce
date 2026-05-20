@@ -12,9 +12,7 @@ const router: Router = Router();
 // router.delete("/:id",validateRequest(productValidationSchema), ProductController.deleteProduct);
 
 router.post(
-  "/create-product",
-  ProductController.createProduct
-);
+  "/create-product",ProductController.createProduct);
 
 router.get(
   "/",

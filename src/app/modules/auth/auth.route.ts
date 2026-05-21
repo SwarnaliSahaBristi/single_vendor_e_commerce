@@ -14,5 +14,4 @@ router.post("/verify-otp", AuthController.verifyOtp);
 
 router.post("/login", AuthController.loginUser);
 
-
 export const AuthRoutes = router;
